@@ -18,7 +18,7 @@ namespace AsyncDelegate
             Console.WriteLine("Doing more work in Main()");
             // По готовности получить результат выполнение метода Add().
             int answer = b.EndInvoke(ar);
-            Console.WriteLine("10 + 10 is {0}.",answer);
+            Console.WriteLine("10 + 10 is {0}.", answer);
         }
         static int Add(int x, int y)
         {
