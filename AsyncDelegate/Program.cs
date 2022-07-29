@@ -5,6 +5,7 @@ namespace AsyncDelegate
 {
     class Program
     {
+        public delegate int BinaryOp(int x, int y);
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
