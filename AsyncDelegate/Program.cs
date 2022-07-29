@@ -3,9 +3,10 @@ using System.Threading;
 
 namespace AsyncDelegate
 {
+    public delegate int BinaryOp(int x, int y);
     class Program
     {
-        public delegate int BinaryOp(int x, int y);
+        private static bool isDone = false;
         static void Main(string[] args)
         {
             Console.WriteLine("***** Async Delegate Invocation *****");
@@ -27,6 +28,12 @@ namespace AsyncDelegate
             // Сделать паузу для моделирования длительной операции.
             Thread.Sleep(5000);
             return x + y;
+        }
+        static void AddComplete(IAsyncResult ar)
+        {
+            Console.WriteLine("AddComplete() invoked on thread {0}.",Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Tour addition is complete");
+            isDone = true;
         }
     }
 }
