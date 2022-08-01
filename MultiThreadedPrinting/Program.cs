@@ -11,7 +11,7 @@ namespace MultiThreadedPrinting
             Printer p = new Printer();
             // Создать 10 потоков, которые указывают на один
             // и тот же метод того же самого объекта.
-            Thread[] threads = new Thread[10];
+            Thread[] threads = new Thread[30];
             for(int i=0;i<threads.Length;i++)
             {
                 threads[i] = new Thread(new ThreadStart(p.PrintNumbers))
