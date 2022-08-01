@@ -11,7 +11,7 @@ namespace TimerApp
             // Создать делегат типа Timer.
             TimerCallback timeCB = new TimerCallback(PrintTime);
             // Установить параметры таймера.
-            Timer t = new Timer(timeCB, null, 0, 1000);
+            Timer t = new Timer(timeCB, "Was is das!", 0, 1000);
             Console.WriteLine("Hit key to terminate...");
             Console.ReadLine();
         }
