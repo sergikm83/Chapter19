@@ -14,6 +14,10 @@ namespace SimpleMultiThreadApp
             // Назначить имя текущему потоку.
             Thread primaryThread = Thread.CurrentThread;
             primaryThread.Name = "Primary";
+            // Вывести информацию о потоке.
+            Console.WriteLine("-> {0} is executing Main()", Thread.CurrentThread.Name);
+            // Создать рабочий класс.
+            Printer p = new Printer();
         }
     }
 }
