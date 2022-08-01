@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace TimerApp
 {
@@ -6,7 +7,13 @@ namespace TimerApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("***** Working with Timer type *****\n");
+            // Создать делегат типа Timer.
+            TimerCallback timeCB = new TimerCallback(PrintTime);
+            // Установить параметры таймера.
+            Timer t = new Timer(timeCB, null, 0, 1000);
+            Console.WriteLine("Hit key to terminate...");
+            Console.ReadLine();
         }
         static void PrintTime(object state)
         {
