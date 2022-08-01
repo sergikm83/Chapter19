@@ -7,7 +7,13 @@ namespace SimpleMultiThreadApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("***** The Amazing Thread App *****\n");
+            Console.Write("Do you want [1] or [2] threads? ");
+            // Запрос количества потоков.
+            string threadCount = Console.ReadLine();
+            // Назначить имя текущему потоку.
+            Thread primaryThread = Thread.CurrentThread;
+            primaryThread.Name = "Primary";
         }
     }
 }
