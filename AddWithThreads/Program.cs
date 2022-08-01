@@ -7,7 +7,14 @@ namespace AddWithThreads
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("***** Adding with Thread objects *****");
+            Console.WriteLine("ID of thread in Main(): {0}", Thread.CurrentThread.ManagedThreadId);
+            // Создать объект AddParams для передачи вторичному потоку.
+            AddParams ap = new AddParams(18, 33);
+            Thread t = new Thread(new ParameterizedThreadStart(Add));
+            t.Start(ap);
+            // Подождать, пока другой поток завершится.
+            Thread.Sleep(5);
         }
         static void Add(object data)
         {
