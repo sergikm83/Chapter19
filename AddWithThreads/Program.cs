@@ -14,7 +14,7 @@ namespace AddWithThreads
             Thread t = new Thread(new ParameterizedThreadStart(Add));
             t.Start(ap);
             // Подождать, пока другой поток завершится.
-            Thread.Sleep(5);
+            Thread.Sleep(500);
         }
         static void Add(object data)
         {
