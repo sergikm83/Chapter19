@@ -18,6 +18,21 @@ namespace SimpleMultiThreadApp
             Console.WriteLine("-> {0} is executing Main()", Thread.CurrentThread.Name);
             // Создать рабочий класс.
             Printer p = new Printer();
+            switch (threadCount)
+            {
+                case "2":
+                    // Создать поток.
+                    Thread backgroundThread = new Thread(new ThreadStart(p.PrintNumbers));
+                    backgroundThread.Name = "Secondary";
+                    backgroundThread.Start();
+                    break;
+                case "1":
+                    p.PrintNumbers();
+                    break;
+                default:
+                    Console.WriteLine("I don't know what you want...you get 1 thread.");
+                    goto case "1";
+            }
         }
     }
 }
