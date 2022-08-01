@@ -33,6 +33,8 @@ namespace SimpleMultiThreadApp
                     Console.WriteLine("I don't know what you want...you get 1 thread.");
                     goto case "1";
             }
+            // выполнить некоторую дополнительную работу.
+            Console.WriteLine("I'm busy! Work on main thread...");
         }
     }
 }
