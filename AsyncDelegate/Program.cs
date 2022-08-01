@@ -14,9 +14,13 @@ namespace AsyncDelegate
             Console.WriteLine("Main() invoked on thread {0}.", Thread.CurrentThread.ManagedThreadId);
             // Вызвать Add() во вторичном потоке.
             BinaryOp b = new BinaryOp(Add);
-            IAsyncResult ar = b.BeginInvoke(10, 10, null, null);
-            // Выполнить другую работу в первичном потоке...
-            Console.WriteLine("Doing more work in Main()");
+            IAsyncResult ar = b.BeginInvoke(10, 10, new AsyncCallback(AddComplete), null);
+            // предположим, что здесь делается какая-то другая работа...
+            while (!isDone)
+            {
+                Console.WriteLine("Working...");
+                Thread.Sleep(1000);
+            }
             // По готовности получить результат выполнение метода Add().
             int answer = b.EndInvoke(ar);
             Console.WriteLine("10 + 10 is {0}.", answer);
